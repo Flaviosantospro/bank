@@ -1,11 +1,11 @@
 <div class="d-flex flex-row justify-content-between">
   <p>Olá <%= current_client.name %> | <%= current_client.bank_account_description %></p>
-  <p><div id="minhaDiv" style="display:none"><%= number_to_currency(current_client.try(:bank_account).try(:real_balance)) %></p></div>
+  <p><div id="minhaDiv" style="display:none" class="text-center fs-4"><%= number_to_currency(current_client.try(:bank_account).try(:real_balance)) %></p></div>
   <p><button type="button" onclick="Mudarestado('minhaDiv')"class= 'btn btn-outline-danger'>Mostrar/Ocultar Saldo</button></p>
   <%= button_to 'Sair', destroy_client_session_path, method: :delete, class: 'btn btn-outline-danger' %>
 </div>
-<h2 class="mb-4">Selecione uma opção</h2>
-<div class="row g-2 mb-2">
+<p><h2 class="mb-4">Selecione uma opção</h2></p>
+<p><div class="row g-2 mb-2"></p>
   <div class="col-lg-6">
     <%= link_to 'Depositar', new_deposit_path, class: 'btn btn-outline-primary py-2 w-100' %>
   </div>
