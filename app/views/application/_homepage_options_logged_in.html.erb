@@ -1,0 +1,43 @@
+<div class="d-flex flex-row justify-content-between">
+  <p>Olá <%= current_client.name %> | <%= current_client.bank_account_description %> </p>
+  <%= button_to 'Sair', destroy_client_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+</div>
+<h2 class="mb-4">Selecione uma opção</h2>
+<div class="row g-2 mb-2">
+  <div class="col-lg-6">
+    <%= link_to 'Depositar', new_deposit_path, class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+
+  <div class="col-lg-6">
+    <%= link_to 'Sacar', new_withdraw_path, class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+</div>
+
+<div class="row g-2 mb-2">
+  <div class="col-lg-6">
+    <%= link_to 'Transferir', new_transfer_path, class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+
+  <div class="col-lg-6">
+    <%= link_to 'Saldo', balance_bank_accounts_path, class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+</div>
+
+<div class="row g-2 mb-2">
+  <div class="col-lg-6">
+    <%= link_to 'Extrato', statement_bank_accounts_path, class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+
+  <div class="col-lg-6">
+    <%= link_to 'Editar seus dados', edit_client_registration_path, class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+</div>
+<div class="row g-2 mb-2">
+  <div class="col-lg-6">
+    <%= button_to 'Encerrar a minha conta',
+                  bank_account_path(current_client.bank_account),
+                  method: :delete,
+                  onclick: "return confirmDestroy('Tem certeza que quer encerrar a sua conta bancária?')",
+                  class: 'btn btn-outline-primary py-2 w-100' %>
+  </div>
+</div>

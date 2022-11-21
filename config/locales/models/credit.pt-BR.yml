@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      credit:
+    attributes:
+      credit:
+        amount: Valor R$

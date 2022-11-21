@@ -1,0 +1,10 @@
+pt-BR:
+  hello: Olá mundo
+  deposit: Depósito
+  transfer: Transferência entre contas
+  fee: Taxa de transferência
+  withdraw: Saque
+  errors:
+    messages:
+      greater_than_or_equal_to_integer_number: deve ser maior ou igual a R$ 2
+      closed: encerrada

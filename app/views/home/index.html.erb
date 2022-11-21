@@ -1,0 +1,25 @@
+<section>
+
+  <% if client_signed_in? && current_client.bank_account.active? %>
+
+    <%= render 'homepage_options_logged_in' %>
+
+  <% elsif client_signed_in? && current_client.bank_account.closed? %>
+
+    <%= render 'homepage_options_bank_account_closed' %>
+
+  <% else %>
+
+    <%= render 'homepage_options_logged_out' %>
+
+  <% end %>
+</section>
+<script>
+  function confirmDestroy(message) {
+    if (!confirm(message)) {
+      return false;
+    }
+  }
+</script>
+
+ 

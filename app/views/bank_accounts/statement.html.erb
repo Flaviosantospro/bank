@@ -1,0 +1,58 @@
+<section class="d-flex flex-column">
+  <div class="d-flex m-auto shadow-lg p-5 flex-column">
+    <h2 class="mb-3">Extrato</h2>
+    <%= form_with url: statement_bank_accounts_path, method: :get do |f| %>
+      <div class="field form-floating">
+        <%= f.date_field :start_date, autocomplete: 'start_date', class: 'form-control', placeholder: ' ' %>
+        <%= f.label :start_date, 'Desde o dia' %><br />
+      </div>
+
+      <div class="field form-floating">
+        <%= f.date_field :end_date, autocomplete: 'end_date', class: 'form-control', placeholder: ' ' %>
+        <%= f.label :end_date, 'até o dia' %><br />
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Consultar', class: 'w-100 btn btn-lg btn-primary fw-bolder mt-2' %>
+      </div>
+    <% end %>
+    <section>
+      <hr class="my-2">
+      <p class="text-muted fw-bolder mt-3">Seu saldo: <%= number_to_currency(current_client.try(:bank_account).try(:real_balance)) %></p>
+
+      <% if @transactions.any? %>
+        <table class="table table-hover table-responsive align-middle text-center">
+          <thead class="table-light">
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @transactions.each_with_index do |transaction, i| %>
+            <tr>
+              <td><%= l(transaction.created_at.to_date) %></td>
+              <% if transaction.is_a?(Credit) %>
+                <td><%= t(transaction.credit_type) %></td>
+                <td id="credit-<%= i %>" class="table-success">
+              <% elsif transaction.is_a?(Debit) %>
+                <td><%= t(transaction.debit_type) %></td>
+                <td id="debit-<%= i %>" class="table-danger">
+              <% end %>
+                  <%= number_to_currency(CentsToIntegerConverter.call(transaction.amount)) %>
+                </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>Não há transações no período</p>
+      <% end %>
+
+      <div class="links d-flex justify-content-center flex-column mt-2">
+        <%= link_to 'Voltar', root_path, class:'text-primary text-decoration-none fw-bolder' %>
+      </div>
+    </section>
+  </div>
+</section>

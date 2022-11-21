@@ -1,0 +1,16 @@
+<section class="d-flex flex-column min-vh-100">
+  <div class="d-flex m-auto shadow-lg p-5 flex-column">
+    <h2 class="mb-3">Abra sua conta</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render 'client_registration_form', f: f %>
+
+      <div class="actions">
+        <%= f.submit 'Abrir conta', class: 'w-100 btn btn-lg btn-primary fw-bolder mt-2' %>
+      </div>
+    <% end %>
+
+    <%= render 'devise/shared/links' %>
+    <%= link_to 'Voltar', root_path, class:'text-primary text-decoration-none fw-bolder' %>
+  </div>
+</section>

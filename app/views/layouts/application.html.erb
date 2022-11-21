@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bank | Caixa Eletrônico</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application' %> 
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="sticky-top shadow-sm">
+      <nav class="navbar bg-primary bg-gradient d-flex justify-content-center">
+        <h1 class="navbar-brand fw-bolder display-5 text-white">Caixa Eletrônico</h1>
+      </nav>
+    </header>
+    <main class="container mb-5">
+      <%= render 'flash_messages' %>
+      <div class="yeld mt-4">
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="mt-auto bg-primary bg-gradient">
+      <div class="py-0 my-4">
+       <p class="text-center text-white fs-6">&copy; 2022 BANK ATM</p>
+      </div>
+    </footer>
+  </body>
+</html>

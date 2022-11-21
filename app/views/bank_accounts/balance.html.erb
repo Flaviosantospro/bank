@@ -1,0 +1,11 @@
+<section class="d-flex flex-column">
+  <div class="d-flex m-auto shadow-lg p-5 flex-column">
+    <h2 class="mb-3">Saldo</h2>
+
+    <p class="display-5 text-center"><%= number_to_currency(current_client.try(:bank_account).try(:real_balance)) %></p>
+
+    <div class="links d-flex justify-content-center flex-column mt-2">
+      <%= link_to 'Voltar', root_path, class:'text-primary text-decoration-none fw-bolder' %>
+    </div>
+  </div>
+</section>

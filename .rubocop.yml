@@ -1,0 +1,25 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'app/mailers/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'config/application.rb'
+    - 'config/boot.rb'
+    - 'config/environment.rb'
+    - 'config/puma.rb'
+    - 'config.ru'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'spec/**/*'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

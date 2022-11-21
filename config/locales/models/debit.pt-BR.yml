@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      debit:
+    attributes:
+      debit:
+        amount: Valor R$
+        bank_account: Conta bancária
+        client: Cliente
+  errors:
+    messages:
+      insufficient_balance: não possui saldo suficiente

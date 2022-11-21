@@ -1,0 +1,52 @@
+<%= render 'devise/shared/error_messages', resource: resource %>
+<div class="row g-2">
+  <div class="field col-lg-6 form-floating">
+    <%= f.text_field :registration_number, autofocus: true, autocomplete: 'registration_number', class: 'form-control', placeholder: ' ', readonly: f.object.persisted? %>
+    <%= f.label :registration_number %><br />
+  </div>
+
+  <div class="field col-lg-6 form-floating">
+    <%= f.date_field :birth_date, autocomplete: 'birth_date', class: 'form-control', placeholder: ' ' %>
+    <%= f.label :birth_date %><br />
+  </div>
+</div>
+<div class="row g-2">
+  <div class="field col-lg-6 form-floating">
+    <%= f.text_field :name, autocomplete: 'name', class: 'form-control', placeholder: ' ' %>
+    <%= f.label :name %><br />
+  </div>
+
+  <div class="field col-lg-6 form-floating">
+    <%= f.text_field :surname, autocomplete: 'surname', class: 'form-control', placeholder: ' ' %>
+    <%= f.label :surname %><br />
+  </div>
+</div>
+<div class="row g-2">
+  <div class="field col-lg-12 form-floating">
+    <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: ' ', readonly: f.object.persisted? %>
+    <%= f.label :email %><br />
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+</div>
+<div class="row g-2 mb-2">
+  <div class="field col-lg-6 form-floating">
+    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control', placeholder: ' ' %>
+    <% if f.object.persisted? %>
+      <i>(deixe em branco se não quiser alterar)</i>
+      <br />
+    <% end %>
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
+    <% end %><br />
+  </div>
+
+  <div class="field col-lg-6 form-floating">
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control', placeholder: ' ' %>
+    <%= f.label :password_confirmation %><br />
+  </div>
+</div>

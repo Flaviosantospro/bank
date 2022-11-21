@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      client: Cliente
+    attributes:
+      client:
+        registration_number: CPF
+        name: Nome
+        surname: Sobrenome
+        birth_date: Data de nascimento
+  errors:
+    messages:
+      must_be_18_years: você precisa ter 18 anos ou mais.

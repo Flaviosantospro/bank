@@ -1,0 +1,15 @@
+<div class="d-flex flex-row justify-content-between">
+  <p>Olá <%= current_client.name %> | <%= current_client.bank_account_description %> </p>
+  <%= button_to 'Sair', destroy_client_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+</div>
+<div class="alert alert-danger">
+  <h2 class="mb-4">Conta bancária encerrada</h2>
+  <p>
+    Sua conta bancária foi encerrada. Se você tiver encerrado sua conta, poderá reativá-la a qualquer momento. Basta clicar no botão abaixo.
+  </p>
+  <hr>
+  <%= button_to 'Reativar conta bancária',
+                bank_account_reactivate_path(current_client.bank_account),
+                method: :patch,
+                class: 'btn btn-outline-primary py-2' %>
+</div>
