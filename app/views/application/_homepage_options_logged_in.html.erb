@@ -1,5 +1,7 @@
 <div class="d-flex flex-row justify-content-between">
-  <p>Olá <%= current_client.name %> | <%= current_client.bank_account_description %> </p>
+  <p>Olá <%= current_client.name %> | <%= current_client.bank_account_description %></p>
+  <p><div id="minhaDiv" style="display:none"><%= number_to_currency(current_client.try(:bank_account).try(:real_balance)) %></p></div>
+  <p><button type="button" onclick="Mudarestado('minhaDiv')"class= 'btn btn-outline-danger'>Mostrar/Ocultar Saldo</button></p>
   <%= button_to 'Sair', destroy_client_session_path, method: :delete, class: 'btn btn-outline-danger' %>
 </div>
 <h2 class="mb-4">Selecione uma opção</h2>
