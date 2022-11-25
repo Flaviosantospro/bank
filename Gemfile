@@ -41,6 +41,10 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 gem 'coffee-script-source', '~> 1.10'
+gem 'extensobr', '~> 1.2', '>= 1.2.1'
+gem 'jquery-mask-plugin', '~> 1.15'
+gem 'maskmoney-rails', '~> 3.0', '>= 3.0.2.0'
+gem 'money-rails', '~> 1.15'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
