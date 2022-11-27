@@ -296,7 +296,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap
+  bootsnap (>= 1.4.4)
   capybara
   coffee-script-source (~> 1.10)
   cssbundling-rails
