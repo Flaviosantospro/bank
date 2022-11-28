@@ -3,7 +3,7 @@ class BankAccount < ApplicationRecord
   has_many :credits
   has_many :debits
 
-  enum status: { active: 5, closed: 10 }
+  enum status: { active: 6, closed: 10 }
 
   validates :account_number, uniqueness: { case_sensitive: false }
   validates :agency_number, :account_number, :balance, presence: true
